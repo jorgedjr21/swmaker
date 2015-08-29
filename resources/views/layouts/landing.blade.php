@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Alpha by HTML5 UP</title>
+		<title>MyHouse ON</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="{{asset('js/ie/html5shiv.js')}})"></script><![endif]-->
@@ -46,11 +46,11 @@
 
 			<!-- Banner -->
 				<section id="banner">
-					<h2>Alpha</h2>
-					<p>Another fine responsive site template freebie by HTML5 UP.</p>
+					<h2>MyHouse ON</h2>
+					<p>Monitoramento e gerenciamento do consumo de energia.</p>
 					<ul class="actions">
 						<li><a href="#" class="button special">Sign Up</a></li>
-						<li><a href="#" class="button">Learn More</a></li>
+						<li><a href="#" class="button">Veja mais</a></li>
 					</ul>
 				</section>
 
@@ -59,9 +59,9 @@
 
 					<section class="box special">
 						<header class="major">
-							<h2>Introducing the ultimate mobile app
+							<h2>Apresentando a nossa solução
 							<br />
-							for doing stuff with your phone</h2>
+							para a falta de controle do seu consumo de energia</h2>
 							<p>Blandit varius ut praesent nascetur eu penatibus nisi risus faucibus nunc ornare<br />
 							adipiscing nunc adipiscing. Condimentum turpis massa.</p>
 						</header>
@@ -72,24 +72,24 @@
 						<div class="features-row">
 							<section>
 								<span class="icon major fa-bolt accent2"></span>
-								<h3>Magna etiam</h3>
+								<h3>Economia</h3>
 								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
 							</section>
 							<section>
 								<span class="icon major fa-area-chart accent3"></span>
-								<h3>Ipsum dolor</h3>
+								<h3>Monitoramento</h3>
 								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
 							</section>
 						</div>
 						<div class="features-row">
 							<section>
 								<span class="icon major fa-cloud accent4"></span>
-								<h3>Sed feugiat</h3>
+								<h3>Dados salvos na nuvem</h3>
 								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
 							</section>
 							<section>
 								<span class="icon major fa-lock accent5"></span>
-								<h3>Enim phasellus</h3>
+								<h3>Segurança</h3>
 								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
 							</section>
 						</div>
