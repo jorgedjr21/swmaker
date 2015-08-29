@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layouts/landing');
-});
+Route::get('/',[
+    'as'=>'index',
+    'uses' => 'AppController@index']);
+
+
+Route::post('/signup',[
+    'as'=> 'site.storeEmail',
+    'uses' => 'AppController@storeEmail'
+]);

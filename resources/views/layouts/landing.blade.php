@@ -130,10 +130,14 @@
 					<h2>Sign up for beta access</h2>
 					<p>Blandit varius ut praesent nascetur eu penatibus nisi risus faucibus nunc.</p>
 
-					<form>
+					<form action="{{route('site.storeEmail')}}" method="POST">
+                        <input type="hidden" value="{{csrf_token()}}" name="_token"/>
 						<div class="row uniform 50%">
 							<div class="8u 12u(mobilep)">
 								<input type="email" name="email" id="email" placeholder="Email Address" />
+                                @if($errors->has('email'))<p>{{$errors->first('email')}}</p> @endif
+                                @if(Session::has('success'))<p>{{Session::get('success')}}</p>@endif
+                                @if(Session::has('error'))<p>{{Session::get('error')}}</p>@endif
 							</div>
 							<div class="4u 12u(mobilep)">
 								<input type="submit" value="Sign Up" class="fit" />
