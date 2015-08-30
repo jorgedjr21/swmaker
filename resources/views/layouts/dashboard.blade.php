@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{asset('css/AdminLTE.min.css')}}">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="{{asset('css/bootstrap-switch.css')}}">
     <link rel="stylesheet" href="{{asset('css/skins/_all-skins.min.css')}}">
     @yield('style')
 
@@ -72,6 +73,7 @@
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <!-- AdminLTE App -->
     <script src="{{asset('js/app.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap-switch.js')}}"></script>
     @yield('script')
 
   </body>

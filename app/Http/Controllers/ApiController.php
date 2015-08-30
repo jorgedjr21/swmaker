@@ -19,8 +19,30 @@ class ApiController extends Controller
     public function index()
     {
         //
+        
+        $data = DB::table('onoff')->select('*')->orderBy('created_at','desc')->first();
+        return response()->json($data->status);
     }
 
+    public function switchLight(Request $request){
+        //echo $request->input('status');
+       // echo $request->input('status');
+        if($request->input('status') =='true'){
+            $status = true;  
+        }else{
+            $status = false;   
+        }
+        DB::beginTransaction();
+        try{
+            DB::table('onoff')->insert(['status'=>$status,'created_at'=>new DateTime]);
+            DB::commit();
+            return response()->json(['success'=>'Alterado com sucesso!']);
+        }catch(\Exception $ex){
+            DB::rollback();
+            return response()->json(['Error'=>'Um erro ocorreu: '.$ex->getMessage()]);
+        }
+        
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -40,7 +62,9 @@ class ApiController extends Controller
     public function store(Request $request)
     {
         //
-        $stringData = $request->input('data');
+        $stringData = $request->all();
+        $stringData = json_encode($stringData);
+        //return response()->json(['chegou'=>$stringData]);
         if($stringData != null || $stringData != ''){
             DB::beginTransaction();
             try{
@@ -105,7 +129,7 @@ class ApiController extends Controller
     public function getData(){
         
         $now = DateTime::createFromFormat('d/m/Y H:i:s',date('d/m/Y H:i:s'));
-        $data = DB::table('hardware')->select('*')->where('created_at','>',$now)->get(100);
+        $data = DB::table('hardware')->select('*')->orderBy('created_at','desc')->take(20)->get();
         return response()->json(['data'=>$data]);
         
     }

@@ -21,14 +21,24 @@ Route::post('/signup',[
     'uses' => 'AppController@storeEmail'
 ]);
 
-Route::get('/api/send',[
+Route::post('/api/send',[
     'as' => 'api.send',
     'uses' => 'ApiController@store'
+]);
+
+Route::post('/api/switchLight',[
+    'as'    =>  'api.switchLight',
+    'uses' =>   'ApiController@switchLight'
 ]);
 
 Route::get('/api/get',[
     'as' => 'api.get',
     'uses'=> 'ApiController@show'
+]);
+
+Route::get('/api/onoff',[
+    'as'   =>   'api.onoff',
+    'uses'  =>  'ApiController@index'
 ]);
 
 Route::get('/dashboard',[

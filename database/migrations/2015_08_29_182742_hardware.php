@@ -19,6 +19,12 @@ class Hardware extends Migration
             $table->timestamps();
         
         });
+        
+        Schema::create('onoff', function($table){
+            $table->increments('id');
+            $table->boolean('status')->default(false);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -29,6 +35,7 @@ class Hardware extends Migration
     public function down()
     {
         //
-        Schema::down('hardware');
+        Schema::drop('hardware');
+        Schema::drop('onoff');
     }
 }
