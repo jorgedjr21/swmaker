@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>MyHouse On</title>
+    <title>MyHome On</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -40,7 +40,7 @@
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>MH</b>O</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>MyHouse</b> On <i class="fa fa-home"></i></span>
+          <span class="logo-lg"><b>MyHome</b> On <i class="fa fa-home"></i></span>
         </a>
 
         <!-- Header Navbar: style can be found in header.less -->
@@ -61,7 +61,7 @@
         <div class="pull-right hidden-xs">
           <b>Version</b> 2.3.0
         </div>
-        <strong>Copyright &copy; {{date('Y')}} <a href="http://myhouseon.co">MyHouse On</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; {{date('Y')}} <a href="http://myhomeon.laravel">MyHome On</a>.</strong> All rights reserved.
       </footer>
 
 
