@@ -26,7 +26,22 @@ Route::get('/api/send',[
     'uses' => 'ApiController@store'
 ]);
 
+Route::get('/api/get',[
+    'as' => 'api.get',
+    'uses'=> 'ApiController@show'
+]);
+
 Route::get('/dashboard',[
     'as' =>  'app.dashboard',
     'uses'  => 'AppController@dashboard'
+]);
+
+Route::get('/api/getData',[
+    'as'=>'api.getData',
+    'uses' => 'ApiController@getData'    
+]);
+
+Route::get('/api/getLastHourData',[
+    'as'=>'api.getLastHourData',
+    'uses' => 'ApiController@getLastHourData'    
 ]);

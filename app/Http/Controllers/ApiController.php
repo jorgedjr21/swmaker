@@ -101,4 +101,23 @@ class ApiController extends Controller
     {
         //
     }
+    
+    public function getData(){
+        
+        $now = DateTime::createFromFormat('d/m/Y H:i:s',date('d/m/Y H:i:s'));
+        $data = DB::table('hardware')->select('*')->where('created_at','>',$now)->get(100);
+        return response()->json(['data'=>$data]);
+        
+    }
+    
+    public function getLastHourData()
+    {
+        $now =  DateTime::createFromFormat('d/m/Y H',date('d/m/Y H'));
+        $lastHour = $now->getTimeStamp()-3600;
+        $lastHour =  DateTime::createFromFormat('d/m/Y H',date('d/m/Y H',$lastHour));
+        $lastHourData = DB::table('hardware')->select('*')->where('created_at','<',$now)->where('created_at','>=',$lastHour)->get();
+        $nowData = DB::table('hardware')->select('*')->where('created_at','>',$now)->get();
+        $arrayData = ['nowData'=>$nowData,'lastHourData'=>$lastHourData];
+        return response()->json(['data'=>$arrayData]);
+    }
 }
