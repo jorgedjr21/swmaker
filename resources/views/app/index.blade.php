@@ -181,7 +181,7 @@
                }
                
                if(calc > 0){
-                    $("#lastHourDescription").append('<i class="fa fa-arrow-up"></i> 'Number(calc-1).toFixed(2)+"%"); 
+                    $("#lastHourDescription").append('<i class="fa fa-arrow-up"></i> '+Number(calc-1).toFixed(2)+'%'); 
                    $(".progress-bar").css('width',Math.floor(100*calc)+'%');
                    $(".progress-bar").addClass('progress-bar-red');
                }
