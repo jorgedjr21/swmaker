@@ -27,19 +27,24 @@ class ApiController extends Controller
     public function switchLight(Request $request){
         //echo $request->input('status');
        // echo $request->input('status');
+        
+        try{
         if($request->input('status') =='true'){
             $status = true;  
         }else{
             $status = false;   
         }
         DB::beginTransaction();
-        try{
-            DB::table('onoff')->insert(['status'=>$status,'created_at'=>new DateTime]);
-            DB::commit();
-            return response()->json(['success'=>'Alterado com sucesso!']);
-        }catch(\Exception $ex){
-            DB::rollback();
-            return response()->json(['Error'=>'Um erro ocorreu: '.$ex->getMessage()]);
+            try{
+                DB::table('onoff')->insert(['status'=>$status,'created_at'=>new DateTime]);
+                DB::commit();
+                return response()->json($status);
+            }catch(\Exception $ex){
+                DB::rollback();
+                return response()->json(['error'=>$ex->getMessage]);
+            }
+        }catch(\Exception $e){
+            return response()->json(['error'=>$e->getMessage()]);   
         }
         
     }
@@ -64,21 +69,33 @@ class ApiController extends Controller
         //
         $stringData = $request->all();
         $stringData = json_encode($stringData);
+        
         //return response()->json(['chegou'=>$stringData]);
-        if($stringData != null || $stringData != ''){
-            DB::beginTransaction();
-            try{
-                DB::table('hardware')
-                ->insert(['data'=>$stringData,'created_at'=>new DateTime]);
-                DB::commit();
-                return response()->json(['success'=>'Sucesso de retorno']);
-            }catch(\Exception $ex){
-                DB::rollback();
-                return response()->json(['error'=>'Um erro ocorreu: '.$ex->getMessage()]);
+        try{
+               
+            if($stringData != null || $stringData != '' && count($stringData) < 20){
+                DB::beginTransaction();
+                try{
+                    DB::table('hardware')
+                    ->insert(['data'=>$stringData,'created_at'=>new DateTime]);
+                    DB::commit();
+
+                    $data = DB::table('onoff')->select('*')->orderBy('created_at','desc')->first();
+                    if(is_null($data)){
+                       $data->status = 0;
+                    }
+                    return response()->json($data->status);
+                }catch(\Exception $ex){
+                    DB::rollback();
+                    return response()->json(['error'=>'Um erro ocorreu: '.$ex->getMessage()]);
+                }
+            }else{
+                    return response()->json(['error'=>'Nenhum dado enviado ou acima de 20 caracteres']);
             }
-        }else{
-                return response()->json(['error'=>'Nenhum dado enviado']);
+        }catch(\Exception $e){
+            return response()->json(['error'=>$e->getMessage()]);   
         }
+        
     }
 
     /**
@@ -129,7 +146,7 @@ class ApiController extends Controller
     public function getData(){
         
         $now = DateTime::createFromFormat('d/m/Y H:i:s',date('d/m/Y H:i:s'));
-        $data = DB::table('hardware')->select('*')->orderBy('created_at','desc')->take(20)->get();
+        $data = DB::table('hardware')->select('*')->orderBy('created_at','desc')->take(10)->get();
         return response()->json(['data'=>$data]);
         
     }
