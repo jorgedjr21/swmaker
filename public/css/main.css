@@ -3029,13 +3029,12 @@
 
 	#banner {
 		background-attachment: scroll,							fixed;
-		background-color: #666;
-		background-image: url("images/overlay.png"), url("../../images/banner.jpg");
+		background-color: #5af387;
 		background-position: top left,						center center;
 		background-repeat: repeat,							no-repeat;
 		background-size: auto,							cover;
 		color: #fff;
-		padding: 12em 0 20em 0;
+		padding: 0em 0 10em 0;
 		text-align: center;
 	}
 
@@ -3170,8 +3169,8 @@
 /* CTA */
 
 	#cta {
-		background: #009933;
-		color: #f9e5df;
+		background: #5af387;
+		color: #000000;
 		padding: 3.5em 0 4em 0;
 		text-align: center;
 	}
@@ -3191,7 +3190,7 @@
 		#cta input[type="button"],
 		#cta .button {
 			box-shadow: none;
-			background: #fff;
+			background: #000000;
 			color: #e89980;
 		}
 
@@ -3200,7 +3199,7 @@
 		#cta input[type="email"],
 		#cta select,
 		#cta textarea {
-			color: #ffffff;
+			color: #000000;
 			background: rgba(255, 255, 255, 0.15);
 			border: 0;
 		}
@@ -3210,27 +3209,27 @@
 			#cta input[type="email"]:focus,
 			#cta select:focus,
 			#cta textarea:focus {
-				box-shadow: inset 0 0 0 2px #fff;
+				box-shadow: inset 0 0 0 2px #000000;
 			}
 
 		#cta ::-webkit-input-placeholder {
-			color: rgba(255, 255, 255, 0.75) !important;
+			color: rgba(0, 0, 0, 0.75) !important;
 		}
 
 		#cta :-moz-placeholder {
-			color: rgba(255, 255, 255, 0.75) !important;
+			color: rgba(0, 0, 0, 0.75) !important;
 		}
 
 		#cta ::-moz-placeholder {
-			color: rgba(255, 255, 255, 0.75) !important;
+			color: rgba(0, 0, 0, 0.75) !important;
 		}
 
 		#cta :-ms-input-placeholder {
-			color: rgba(255, 255, 255, 0.75) !important;
+			color: rgba(0, 0, 0, 0.75) !important;
 		}
 
 		#cta .formerize-placeholder {
-			color: rgba(255, 255, 255, 0.75) !important;
+			color: rgba(0, 0, 0, 0.75) !important;
 		}
 
 /* Wide */

@@ -46,12 +46,15 @@
 
 			<!-- Banner -->
 				<section id="banner">
+                    <!--
 					<h2>MyHouse ON</h2>
 					<p>Monitoramento e gerenciamento do consumo de energia.</p>
 					<ul class="actions">
 						<li><a href="#" class="button special">Sign Up</a></li>
 						<li><a href="#" class="button">Veja mais</a></li>
 					</ul>
+                    -->
+                    <img src="{{asset('images/logo-small.jpg')}}">
 				</section>
 
 			<!-- Main -->
@@ -62,8 +65,8 @@
 							<h2>Apresentando a nossa solução
 							<br />
 							para a falta de controle do seu consumo de energia</h2>
-							<p>Blandit varius ut praesent nascetur eu penatibus nisi risus faucibus nunc ornare<br />
-							adipiscing nunc adipiscing. Condimentum turpis massa.</p>
+							<p>Sua casa sempre ao alcance das suas mãos<br />
+							</p>
 						</header>
 						<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
 					</section>
@@ -73,74 +76,47 @@
 							<section>
 								<span class="icon major fa-bolt accent2"></span>
 								<h3>Economia</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+								<p>Oferece informações para reduzir o consumo de energia.</p>
 							</section>
 							<section>
 								<span class="icon major fa-area-chart accent3"></span>
 								<h3>Monitoramento</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+								<p>Identifica os horários de pico e o valor da conta.</p>
 							</section>
 						</div>
 						<div class="features-row">
 							<section>
 								<span class="icon major fa-cloud accent4"></span>
 								<h3>Dados salvos na nuvem</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+								<p>Acessa o consumo de energia da sua casa de qualquer lugar.</p>
 							</section>
 							<section>
 								<span class="icon major fa-lock accent5"></span>
 								<h3>Segurança</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+								<p>Desliga dispositivos que oferecem risco à residência.</p>
 							</section>
 						</div>
 					</section>
-
-					<div class="row">
-						<div class="6u 12u(narrower)">
-
-							<section class="box special">
-								<span class="image featured"><img src="images/pic02.jpg" alt="" /></span>
-								<h3>Sed lorem adipiscing</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
-								<ul class="actions">
-									<li><a href="#" class="button alt">Learn More</a></li>
-								</ul>
-							</section>
-
-						</div>
-						<div class="6u 12u(narrower)">
-
-							<section class="box special">
-								<span class="image featured"><img src="images/pic03.jpg" alt="" /></span>
-								<h3>Accumsan integer</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
-								<ul class="actions">
-									<li><a href="#" class="button alt">Learn More</a></li>
-								</ul>
-							</section>
-
-						</div>
-					</div>
 
 				</section>
 
 			<!-- CTA -->
 				<section id="cta">
 
-					<h2>Sign up for beta access</h2>
-					<p>Blandit varius ut praesent nascetur eu penatibus nisi risus faucibus nunc.</p>
+					<h2>Interessou? Registre para a fila de espera!</h2>
+					<p>Você será informado quando o produto entrar no mercado.</p>
 
 					<form action="{{route('site.storeEmail')}}" method="POST">
                         <input type="hidden" value="{{csrf_token()}}" name="_token"/>
 						<div class="row uniform 50%">
 							<div class="8u 12u(mobilep)">
-								<input type="email" name="email" id="email" placeholder="Email Address" />
+								<input type="email" name="email" id="email" placeholder="Endereço de email" />
                                 @if($errors->has('email'))<p>{{$errors->first('email')}}</p> @endif
                                 @if(Session::has('success'))<p>{{Session::get('success')}}</p>@endif
                                 @if(Session::has('error'))<p>{{Session::get('error')}}</p>@endif
 							</div>
 							<div class="4u 12u(mobilep)">
-								<input type="submit" value="Sign Up" class="fit" />
+								<input type="submit" value="Registrar" class="fit" />
 							</div>
 						</div>
 					</form>
@@ -158,7 +134,7 @@
 						<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
 					</ul>
 					<ul class="copyright">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						<li>&copy; MyHome ON. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 					</ul>
 				</footer>
 
