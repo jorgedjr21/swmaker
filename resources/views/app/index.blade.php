@@ -154,10 +154,10 @@
                }
               // console.log(sumNow+'-'+sumLastHour);
                if(sumNow == 0 ){
-                    calc = -100;   
+                    calc = -1;   
                }
                if(sumLastHour == 0){
-                    calc = 100;   
+                    calc = 1;   
                }
                
                if(sumLastHour == 0 && sumNow == 0){
@@ -179,7 +179,7 @@
                    $(".progress-bar").addClass('progress-bar-green');
                }
                
-               if(calc >= 0){
+               if(calc > 0){
                     $("#lastHourDescription").append('Aumento de '+Math.floor(calc*100)+'%'); 
                    $(".progress-bar").css('width',100*calc+'%');
                    $(".progress-bar").addClass('progress-bar-red');
