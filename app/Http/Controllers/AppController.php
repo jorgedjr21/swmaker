@@ -117,7 +117,7 @@ class AppController extends Controller
         $st = DB::table('onoff')->select('status')->orderBy('created_at','desc')->first();
         
         $status = 'checked';
-        if($st->status < 1 ){
+        if(isset($st->status)&&$st->status <1 ){
             $status = '';
         }
         return view('app/index',compact('status'));
