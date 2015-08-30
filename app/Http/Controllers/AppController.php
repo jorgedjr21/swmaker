@@ -112,4 +112,9 @@ class AppController extends Controller
     {
         //
     }
+    
+    public function dashboard(){
+        return view('app/index');
+        
+    }
 }

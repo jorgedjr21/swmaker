@@ -20,3 +20,13 @@ Route::post('/signup',[
     'as'=> 'site.storeEmail',
     'uses' => 'AppController@storeEmail'
 ]);
+
+Route::get('/api/send',[
+    'as' => 'api.send',
+    'uses' => 'ApiController@store'
+]);
+
+Route::get('/dashboard',[
+    'as' =>  'app.dashboard',
+    'uses'  => 'AppController@dashboard'
+]);
