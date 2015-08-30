@@ -138,8 +138,9 @@
                    lhData = JSON.parse(lastHour[i].data);
                    
                    if(lhData.corrente != null || lhData.corrente != undefined){
+                       
                         sumLastHour += parseFloat(lhData.corrente);
-                        sumLastHour = (sumLastHour*127)/10000     
+                        sumLastHour += (sumLastHour*127)/10000;
                    }
                    
                }
@@ -168,20 +169,20 @@
                if(sumNow != 0 && sumLastHour != 0){
                    calc = (sumNow/sumLastHour)-1;
                }
-               
+             //  console.log(sumNow+'-'+sumLastHour);
                $("#actualCost").html('');
                $("#actualCost").append('R$ '+Number(sumNow*preco).toFixed(2));
                $("#lastHourDescription").html('');
                
                if(calc <= 0){
-                    $("#lastHourDescription").append('<i class="fa fa-arrow-down"></i>');
-                   $(".progress-bar").css('width',-100*calc+'%');
+                    $("#lastHourDescription").append('<i class="fa fa-arrow-down"></i> '+Number(calc-1).toFixed(2)+"%");
+                   $(".progress-bar").css('width',Math.floor(-100*calc)+'%');
                    $(".progress-bar").addClass('progress-bar-green');
                }
                
                if(calc > 0){
-                    $("#lastHourDescription").append('<i class="fa fa-arrow-up"></i>'); 
-                   $(".progress-bar").css('width',100*calc+'%');
+                    $("#lastHourDescription").append('<i class="fa fa-arrow-up"></i> 'Number(calc-1).toFixed(2)+"%"); 
+                   $(".progress-bar").css('width',Math.floor(100*calc)+'%');
                    $(".progress-bar").addClass('progress-bar-red');
                }
                
