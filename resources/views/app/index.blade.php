@@ -49,7 +49,7 @@
               <div class="box box-primary">
                 <div class="box-header with-border">
                   <i class="fa fa-bar-chart-o"></i>
-                  <h3 class="box-title">Gastos em Tempo Real (kW/h)</h3>
+                  <h3 class="box-title">Gastos em Tempo Real (W)</h3>
                 </div>
                 <div class="box-body">
                   
@@ -129,8 +129,8 @@
                var nData = [];
                var sumLastHour = 0;
                var sumNow = 0;
-               var calc = null;
-               var preco = 0.56474;
+               var calc = 0;
+               var preco = 0.56474/60000;
                
                lastHour = response.data.lastHourData;
                now      = response.data.nowData;
@@ -139,7 +139,7 @@
                    
                    if(lhData.corrente != null || lhData.corrente != undefined){
                         sumLastHour += parseFloat(lhData.corrente);
-                        sumLastHour = (sumLastHour*127)/1000     
+                        sumLastHour = (sumLastHour*127)/10000     
                    }
                    
                }
@@ -149,7 +149,7 @@
                    
                    if(nData.corrente != null || nData.corrente != undefined){
                         sumNow += parseFloat(nData.corrente);
-                            sumNow += (sumNow*127)/1000;
+                            sumNow += (sumNow*127)/10000;
                    }
                }
               // console.log(sumNow+'-'+sumLastHour);
@@ -170,17 +170,17 @@
                }
                
                $("#actualCost").html('');
-               $("#actualCost").append('R$ '+Math.floor(sumNow*preco));
+               $("#actualCost").append('R$ '+Number(sumNow*preco).toFixed(2));
                $("#lastHourDescription").html('');
                
-               if(calc < 0){
-                    $("#lastHourDescription").append('Redução de '+Math.floor(calc*-100)+'%');
+               if(calc <= 0){
+                    $("#lastHourDescription").append('<i class="fa fa-arrow-down"></i>');
                    $(".progress-bar").css('width',-100*calc+'%');
                    $(".progress-bar").addClass('progress-bar-green');
                }
                
                if(calc > 0){
-                    $("#lastHourDescription").append('Aumento de '+Math.floor(calc*100)+'%'); 
+                    $("#lastHourDescription").append('<i class="fa fa-arrow-up"></i>'); 
                    $(".progress-bar").css('width',100*calc+'%');
                    $(".progress-bar").addClass('progress-bar-red');
                }
